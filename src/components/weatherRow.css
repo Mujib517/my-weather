@@ -1,0 +1,21 @@
+.weather-date {
+    float: left;
+}
+
+.weather-temp {
+    float: right;
+    text-align: right;
+}
+
+.weather-icon {
+    width:30px;
+    height:30px;
+    text-align: right;
+}
+.temp-min{
+    font-size: x-small;
+    margin-right: 2px;
+}
+.temp-max{
+    font-size: large;
+}

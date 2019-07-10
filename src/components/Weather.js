@@ -6,14 +6,13 @@ import WeatherHeader from './WeatherHeader';
 export default class Weather extends React.Component {
 
     renderForecast() {
-        const elems = [];
-
-        this.props.data.list.forEach((weather, idx) => {
-            //small hack to get daily forecast instead of hourly
-            if (idx % 8 === 0) elems.push(<WeatherRow key={idx} weather={weather}/>);
-        });
-
-        return <div className="list-group text-muted">{elems}</div>;
+        return (<div className="list-group text-muted">{
+            this.props.data.list.map((weather, idx) => {
+                //small hack to get daily forecast instead of hourly
+                if (idx % 8 === 0) return <WeatherRow key={idx} weather={weather}/>;
+            })
+        }
+        </div>);
     }
 
     render() {

@@ -9,8 +9,10 @@ export default class WeatherSearch extends React.Component {
         this.onChange = this.onChange.bind(this);
     }
 
-    search() {
-        this.props.onSearch(this.state.city);
+    search(evt) {
+        const city = this.state.city;
+        this.props.onSearch(city);
+        evt.preventDefault();
     }
 
     onChange(evt) {
@@ -19,14 +21,16 @@ export default class WeatherSearch extends React.Component {
 
     render() {
         return (
-            <div className="input-group">
-                <input onChange={this.onChange} type="text" className="form-control" placeholder="Enter City"/>
-                <span className="input-group-btn">
-                        <button type="submit" className="btn btn-default" onClick={this.search}>
+            <form onSubmit={this.search}>
+                <div className="input-group">
+                    <input onChange={this.onChange} type="text" className="form-control" placeholder="Enter City"/>
+                    <span className="input-group-btn">
+                        <button type="submit" className="btn btn-default">
                         <span className="fa fa-search"></span>
                         </button>
                     </span>
-            </div>
+                </div>
+            </form>
         )
     }
 }

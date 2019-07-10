@@ -17,13 +17,14 @@ export default class WeatherContainer extends React.Component {
         this.getData();
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.getData();
+    }
+
     getData() {
         const url = `${config.apiUrl}?q=${this.state.city},${this.state.country}&appid=${config.apiKey}&units=metric`;
         axios.get(url)
-            .then(res => {
-                this.setState({data: res.data});
-                console.log(this.state.data);
-            })
+            .then(res => this.setState({data: res.data, err: false}))
             .catch(() => this.setState({err: true}));
     }
 
@@ -34,7 +35,7 @@ export default class WeatherContainer extends React.Component {
     }
 
     onSearch(city) {
-        this.setState({city: city}, () => this.getData());
+        this.setState({city: city});
     }
 
     render() {

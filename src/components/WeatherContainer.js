@@ -13,14 +13,11 @@ export default class WeatherContainer extends React.Component {
         this.onSearch = this.onSearch.bind(this);
     }
 
-
     componentDidMount() {
-        console.log('getting data');
         this.getData();
     }
 
     getData() {
-        console.log('getting data');
         const url = `${config.apiUrl}?q=${this.state.city},${this.state.country}&appid=${config.apiKey}&units=metric`;
         axios.get(url)
             .then(res => {

@@ -4,7 +4,7 @@ import getWeatherIcon from "../getWeatherIcon";
 export default (props) => {
     const {data} = props;
 
-    return (<>
+    return (<div className="card-header">
         <h3 className="city">{data.city.name}</h3>
         <div className="condition"> {data.list[0].weather[0].main}
         </div>
@@ -17,5 +17,5 @@ export default (props) => {
             <span className="temp-max">{parseInt(data.list[0].main.temp_max)}</span>
             °C
         </div>
-    </>)
+    </div>)
 }

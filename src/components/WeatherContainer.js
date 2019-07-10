@@ -8,8 +8,8 @@ export default class WeatherContainer extends React.Component {
 
     constructor() {
         super();
-        this.state = {data: [], city: 'Berlin', country: 'de'};
 
+        this.state = {data: [], city: 'Berlin', country: 'de'};
         this.onSearch = this.onSearch.bind(this);
     }
 
